@@ -7,10 +7,8 @@ def mostrar_informacion_pelicula(pelicula: dict) -> None:
     print("Duración: " + str(pelicula["duracion"]) + " mins")
     print("Género: " + pelicula["genero"])
     print("Clasificación: " + pelicula["clasificacion"])
-
     hora = pelicula["hora"]
     dia = pelicula["dia"]
-
     print("Día: " + dia + " Hora: " + str(hora // 100).zfill(2) + ":" + str(hora % 100).zfill(2))
 
 def ejecutar_encontrar_pelicula_mas_larga(p1: dict, p2: dict, p3: dict, p4: dict, p5: dict) -> None:
@@ -19,15 +17,13 @@ def ejecutar_encontrar_pelicula_mas_larga(p1: dict, p2: dict, p3: dict, p4: dict
         mostrar_informacion_pelicula(pelicula_larga)
     else:
         print("No hay películas en la lista.")
-3
+
 def ejecutar_consultar_duracion_promedio_peliculas(p1: dict, p2: dict, p3: dict, p4: dict, p5: dict) -> None:
     promedio = mod.duracion_promedio_peliculas(p1, p2, p3, p4, p5)
     print("La duración promedio de las películas es: " + promedio)
 
 def ejecutar_encontrar_estrenos(p1: dict, p2: dict, p3: dict, p4: dict, p5: dict) -> None:
-
     anio = input("Ingrese el año: ")
-
     estrenos = mod.encontrar_estrenos(p1, p2, p3, p4, p5, int(anio))
     if estrenos == "":
         print("No hay estrenos después de ese año.")
@@ -149,3 +145,4 @@ def mostrar_menu_aplicacion(p1: dict, p2: dict, p3: dict, p4: dict, p5: dict) ->
     return continuar_ejecutando
 
 iniciar_aplicacion()
+
