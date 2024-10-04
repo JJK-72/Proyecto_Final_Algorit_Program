@@ -1,29 +1,3 @@
-"""
-Ejercicio nivel 2: Agenda de peliculas.
-Módulo de cálculos.
-
-Temas:
-* Variables.
-* Tipos de datos.
-* Expresiones aritmeticas.
-* Instrucciones basicas y consola.
-* Dividir y conquistar: funciones y paso de parametros.
-* Especificacion y documentacion.
-* Instrucciones condicionales.
-* Diccionarios.
-@author: Cupi2
-
-NOTA IMPORTANTE PARA TENER EN CUENTA EN TODAS LAS FUNCIONES DE ESTE MODULO:
-        Los diccionarios de pelicula tienen las siguientes parejas de clave-valor:
-            - nombre (str): Nombre de la pelicula agendada.
-            - genero (str): Generos de la pelicula separados por comas.
-            - duracion (int): Duracion en minutos de la pelicula
-            - anio (int): Anio de estreno de la pelicula
-            - clasificacion (str): Clasificacion de restriccion por edad
-            - hora (int): Hora de inicio de la pelicula
-            - dia (str): Indica que día de la semana se planea ver la película
-"""
-
 def crear_pelicula(nombre: str, genero: str, duracion: int, anio: int, clasificacion: str, hora: int, dia: str) -> dict:
     
     pelicula = {
@@ -38,15 +12,13 @@ def crear_pelicula(nombre: str, genero: str, duracion: int, anio: int, clasifica
     return pelicula
 
 p1 = crear_pelicula("Toy Story", "Familiar, Comedia", 81, 1995, "7+", 1000, "Domingo" )
-p2 = crear_pelicula("Parasite", "thriller, comedia", 132, 2019, "16+", 1400, "Dmingo" )
+p2 = crear_pelicula("Parasite", "thriller, comedia", 132, 2019, "18+", 1400, "Dmingo" )
 p3 = crear_pelicula("Avengers: Endgame", "Ciencia Ficción, Acción", 181, 2019, "13+", 1630, "Sábado" )
 p4 = crear_pelicula("The Lion King", "Familiar, comedia", 88, 1994, "Todos", 1800, " Jueves" )
 p5 = crear_pelicula("The Shawshank Redemption", "Drama", 142, 1994, "16+", 2000, "Lunes" )
 
 
 def encontrar_pelicula(nombre_pelicula: str, p1: dict, p2: dict, p3: dict, p4: dict, p5: dict) -> dict:
-
-    d = {p1['nombre']: p1, p2['nombre']: p2, p3['nombre']: p3, p4['nombre']: p4, p5['nombre']: p5}
 
     NP = input('Ingrese el nombre de la película: ')
 
@@ -152,14 +124,14 @@ def reagendar_pelicula(pelicula: dict, nueva_hora: int, nuevo_dia: str, control_
 
 def decidir_invitar(peli: dict, edad_invitado: int) -> bool:
 
-    invitar = input("¿Deseas invitar a alguien? (si/no): ")
+    invitar = input("¿Deseas invitar a alguien? (s/n): ")
 
-    if invitar == 'no':
+    if invitar == 'n':
         print("No se realizará la invitación.")
         return False
 
-    if invitar == 'si':
-        autorizacion_padres = input("¿Tienes autorización de los padres? (si/no): ")
+    if invitar == 's':
+        autorizacion_padres = input("¿Tienes autorización de los padres? (s/n): ")
         
         if edad_invitado >= 18:
             print("Puedes invitar a la persona.")
@@ -174,7 +146,7 @@ def decidir_invitar(peli: dict, edad_invitado: int) -> bool:
             return False
 
         if peli['clasificacion'] == '18+':
-            if autorizacion_padres == 'no':
+            if autorizacion_padres == 'n':
                 print("Necesitas autorización de los padres para invitar a ver películas 18+.")
                 return False
 
@@ -183,6 +155,8 @@ def decidir_invitar(peli: dict, edad_invitado: int) -> bool:
 
     print("Opción no válida.")
     return False
+
+
 
 
 
